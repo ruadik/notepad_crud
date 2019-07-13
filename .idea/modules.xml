@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../alexandreev/.idea/alexandreev.iml" filepath="$PROJECT_DIR$/../alexandreev/.idea/alexandreev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/notepad_crud.iml" filepath="$PROJECT_DIR$/.idea/notepad_crud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../notepad_lesson/.idea/notepad_lesson.iml" filepath="$PROJECT_DIR$/../notepad_lesson/.idea/notepad_lesson.iml" />
+    </modules>
+  </component>
+</project>
