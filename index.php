@@ -1,14 +1,14 @@
 <?php
-$pdo=new PDO('mysql:host=192.168.10.10; dbname=notepad_crud; charset=utf8', 'homestead','secret');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql='select * from tasks';
-$stmt=$pdo->prepare($sql);
-$stmt->execute();
-$tasks=$stmt->fetchAll(PDO::FETCH_ASSOC);
+//$pdo=new PDO('mysql:host=192.168.10.10; dbname=notepad_crud; charset=utf8', 'homestead','secret');
+//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//$sql='select * from tasks';
+//$stmt=$pdo->prepare($sql);
+//$stmt->execute();
+//$tasks=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//foreach ($tasks as $task){
-//    var_dump($task);
-//}
+//require 'database/querybilder.php';
+//$db = new querybilder();
+$tasks = $db->selectAll('tasks');
 ?>
 
 
@@ -34,7 +34,7 @@ $tasks=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="row align-items-center ">
         <div class="col-md-4">
-            <a href="create.php" type="button" class="btn btn-success">Add Task</a>
+            <a href="../create.php" type="button" class="btn btn-success">Add Task</a>
         </div>
 
         <div class="col-md-8">
@@ -53,9 +53,9 @@ $tasks=$stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?= $task['title'];?></td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="show.php?id=<?= $task['id']?>" type="button" class="btn btn-dark">Show</a>
-                            <a href="edit.php?id=<?= $task['id']?>" type="button" class="btn btn-warning">Edit</a>
-                            <a onclick="return confirm('Ты уверен что хочешь удалить?');" href="delete.php?id=<?= $task['id']?>" type="button" class="btn btn-danger">Delete</a>
+                            <a href="../show.php?id=<?= $task['id']?>" type="button" class="btn btn-dark">Show</a>
+                            <a href="../edit.php?id=<?= $task['id']?>" type="button" class="btn btn-warning">Edit</a>
+                            <a onclick="return confirm('Ты уверен что хочешь удалить?');" href="../delete.php?id=<?= $task['id']?>" type="button" class="btn btn-danger">Delete</a>
                         </div>
                     </td>
                 </tr>

@@ -1,13 +1,19 @@
 <?php
-$pdo=new PDO('mysql:host=192.168.10.10; dbname=notepad_crud; charset=utf8','homestead', 'secret');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql='Select * from  tasks where id=:id';
-$stmt=$pdo->prepare($sql);
-$stmt->execute($_GET);
-$task=$stmt->fetch(PDO::FETCH_ASSOC);
-//var_dump($task);
-//die;
-
+//function getTask($data){
+//$pdo=new PDO('mysql:host=192.168.10.10; dbname=notepad_crud; charset=utf8','homestead', 'secret');
+//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//$sql='Select * from  tasks where id=:id';
+//$stmt=$pdo->prepare($sql);
+//$stmt->execute($data);
+//$task=$stmt->fetch(PDO::FETCH_ASSOC);
+//return $task;
+//}
+//$task = getTask($_GET);
+$id = $_GET['id'];
+require 'database/querybilder.php';
+$my_getOne = new querybilder();
+//$task = $my_getOne->getOne($_GET);
+$task = $my_getOne->getOne("tasks", $id);
 ?>
 
 
@@ -54,7 +60,7 @@ $task=$stmt->fetch(PDO::FETCH_ASSOC);
 
     <div class="row">
         <div class="col-md-12">
-            <a href="index.php" name="Go back">Go back...</a>
+            <a href="web/index.php" name="Go back">Go back...</a>
         </div>
     </div>
 

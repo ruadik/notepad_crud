@@ -1,16 +1,19 @@
 <?php
-$pdo=new PDO('mysql:host=192.168.10.10; dbname=notepad_crud; charset=utf8', 'homestead','secret');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql='select * from tasks where id=:id';
-$stmt=$pdo->prepare($sql);
-$stmt->execute($_GET);
-$task=$stmt->fetch(PDO::FETCH_ASSOC);
-
-//foreach ($tasks as $task){
-//    var_dump($task['title']);
-
-
+//function getTask($data){
+//    $pdo=new PDO('mysql:host=192.168.10.10; dbname=notepad_crud; charset=utf8','homestead', 'secret');
+//    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//    $sql='Select * from  tasks where id=:id';
+//    $stmt=$pdo->prepare($sql);
+//    $stmt->execute($data);
+//    $task=$stmt->fetch(PDO::FETCH_ASSOC);
+//    return $task;
 //}
+//$task = getTask($_GET);
+$id = $_GET['id'];
+require 'database/querybilder.php';
+$my_getOne = new querybilder();
+//$task = $my_getTask->getTask($_GET);
+$task = $my_getOne->getOne('tasks', $id);
 ?>
 
 
